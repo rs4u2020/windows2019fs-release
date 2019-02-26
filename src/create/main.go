@@ -18,7 +18,7 @@ func main() {
 
 	imageName := "cloudfoundry/windows2016fs"
 
-	imageTagPath := filepath.Join(releaseDir, "src", "code.cloudfoundry.org", "windows2016fs", "1803", "IMAGE_TAG")
+	imageTagPath := filepath.Join(releaseDir, "src", "code.cloudfoundry.org", "windows2016fs", "2019", "IMAGE_TAG")
 
 	versionDataPath := filepath.Join(releaseDir, "VERSION")
 
