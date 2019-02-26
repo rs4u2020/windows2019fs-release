@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -e
+
+rootdir="$( dirname "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" )"
+outfile="$rootdir/bin/create"
+
+export GOPATH=$rootdir
+go build -o "$outfile" "$rootdir/src/create/main.go"
+
+"$outfile" --releaseDir "$rootdir" "${@:1}"

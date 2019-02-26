@@ -1,0 +1,7 @@
+---
+name: windows2019fs
+
+dependencies: []
+
+files:
+  - windows2019fs/windows2016fs-*.tgz
