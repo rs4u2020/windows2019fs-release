@@ -19,14 +19,12 @@ function cleanupCerts() {
 }
 
 $sharedEventName = "RootfsEvent"
-$ErrorActionPreference = "SilentlyContinue"
-$event = [System.Threading.EventWaitHandle]::OpenExisting($sharedEventName)
-$ErrorActionPreference = "Stop"
-
-if ($event -eq $null) {
-	$mode = New-Object System.Threading.EventResetMode
-	$initSignaled = $false
-	$event = New-Object System.Threading.EventWaitHandle($initSignaled, $mode, $sharedEventName)
+try {
+  $event = [System.Threading.EventWaitHandle]::OpenExisting($sharedEventName)
+} catch {
+  $mode = New-Object System.Threading.EventResetMode
+  $initSignaled = $false
+  $event = New-Object System.Threading.EventWaitHandle($initSignaled, $mode, $sharedEventName)
 }
 
 Write-Output "Waiting for signal from pre-start script of winc-release/job=groot" | timestamp
