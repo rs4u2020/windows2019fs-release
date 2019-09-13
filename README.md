@@ -29,3 +29,6 @@ bosh -d windows2019fs deploy manifests/smoke-test.yml
 bosh -d windows2019fs run-errand smoke-test
 ```
 
+## Requirements
+
+* This bosh release can only be deployed together with a [winc-release](https://github.com/cloudfoundry/winc-release) of v2.0 or higher. The [windows2019fs pre-start script](/jobs/windows2019fs/templates/pre-start.ps1.erb) waits for winc-release's groot pre-start to signal.
