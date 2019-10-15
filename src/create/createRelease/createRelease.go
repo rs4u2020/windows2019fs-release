@@ -21,8 +21,9 @@ func (rc ReleaseCreator) CreateRelease(imageName, releaseDir, tarballPath, image
 	}
 	imageTag := string(tagData)
 
-	i := imagefetcher.New(log.New(os.Stdout, "", 0), filepath.Join(releaseDir, "blobs", "windows2019fs"), imageName, imageTag, false)
-	if err := i.Run(); err != nil {
+	i := imagefetcher.New(log.New(os.Stdout, "", 0), filepath.Join(releaseDir, "blobs", "windows2019fs"), imageName, imageTag, "", false)
+	err = i.Run()
+	if err != nil {
 		return err
 	}
 
