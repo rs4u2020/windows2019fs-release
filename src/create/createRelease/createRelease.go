@@ -15,15 +15,10 @@ import (
 
 type ReleaseCreator struct{}
 
-func (rc ReleaseCreator) CreateRelease(imageName, releaseDir, tarballPath, imageTagPath, versionDataPath string) error {
-	tagData, err := ioutil.ReadFile(imageTagPath)
-	if err != nil {
-		return err
-	}
-	imageTag := string(tagData)
+func (rc ReleaseCreator) CreateRelease(imageName, releaseDir, tarballPath, imageTag, versionDataPath string) error {
 
 	i := imagefetcher.New(log.New(os.Stdout, "", 0), filepath.Join(releaseDir, "blobs", "windows2019fs"), imageName, imageTag, "", false)
-	err = i.Run()
+	err := i.Run()
 	if err != nil {
 		return err
 	}
