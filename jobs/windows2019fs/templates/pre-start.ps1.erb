@@ -1,4 +1,4 @@
-filter timestamp {(get-date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss:fffffff00Z")}
+filter timestamp { "$((get-date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ss:fffffff00Z')): $_" }
 
 Write-Output "Started windowsfs pre-start" | timestamp
 
