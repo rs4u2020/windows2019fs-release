@@ -15,7 +15,11 @@ mkdir -p ${WORKDIR}
 export GOPATH=${WORKDIR}
 go get github.com/cloudfoundry/hydrator/cmd/hydrate
 
-TAG="$(cat ${DIR}/config/blobs.yml | grep 'windows2019fs/windows2016fs-' |  grep -o '\d*\.\d*\.\d*')"
+if [ `uname` == "Linux" ]; then
+  TAG="$(cat ${DIR}/config/blobs.yml | grep 'windows2019fs/windows2016fs-' |  grep -oP '\d*\.\d*\.\d*')"
+else
+  TAG="$(cat ${DIR}/config/blobs.yml | grep 'windows2019fs/windows2016fs-' |  grep -o '\d*\.\d*\.\d*')"
+fi
 
 ${WORKDIR}/bin/hydrate \
   download \
