@@ -2,10 +2,25 @@
 
 set -e
 
-rootdir="$( dirname "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" )"
-outfile="$rootdir/bin/create"
+DIR="$(cd $(dirname "$0") && cd .. && pwd )"
+WORKDIR=/tmp/go-workdir
 
-export GOPATH=$rootdir
-go build -o "$outfile" "$rootdir/src/create/main.go"
+function cleanup {
+    rm -rf ${WORKDIR}
+}
 
-"$outfile" --releaseDir "$rootdir" "${@:1}"
+trap cleanup exit
+
+mkdir -p ${WORKDIR}
+export GOPATH=${WORKDIR}
+go get github.com/cloudfoundry/hydrator/cmd/hydrate
+
+TAG="$(cat ${DIR}/config/blobs.yml | grep 'windows2019fs/windows2016fs-' |  grep -o '\d*\.\d*\.\d*')"
+
+${WORKDIR}/bin/hydrate \
+  download \
+  -image cloudfoundry/windows2016fs \
+  -tag ${TAG} \
+  -outputDir ${DIR}/blobs/windows2019fs
+
+bosh create-release "${@:1}"
