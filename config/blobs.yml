@@ -2,6 +2,6 @@ golang/go1.15.2.windows-amd64.zip:
   size: 139170239
   object_id: 32d268ec-ff85-48fe-7899-1193eed65ed5
   sha: 8a898545561ef62a258488240a224606c0be9e2c
-windows2019fs/windows2016fs-2019.0.60.tgz:
-  size: 3483240020
-  sha: 298e8d3cec81bfc18d2a6ba4441a3a5dc640ddd4
+windows2019fs/windows2016fs-2019.0.61.tgz:
+  size: 3526291168
+  sha: 704ab3bc7c8aa886b4abfb6379a0db8818694497
