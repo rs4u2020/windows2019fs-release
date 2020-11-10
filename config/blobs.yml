@@ -2,6 +2,6 @@ golang/go1.15.4.windows-amd64.zip:
   size: 138844077
   object_id: d0088a66-a877-4ed3-4aff-fa2c8779feae
   sha: a629cd7bda5847db466a605d6bc2f603fa2edde4
-windows2019fs/windows2016fs-2019.0.65.tgz:
-  size: 3566706484
-  sha: 2f6f0fc4f622bab3181a5cbd9522597fda69ea46
+windows2019fs/windows2016fs-2019.0.66.tgz:
+  size: 3572340724
+  sha: f85a76c606fc873cf75bbbb1c6b6a8c4fcab14e1
