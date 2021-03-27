@@ -16,7 +16,7 @@ $pkg_path="code.cloudfoundry.org/hydrator/cmd/hydrate"
 
 cd "${PWD}\src\code.cloudfoundry.org\hydrator"
 
-go.exe build -o "${BOSH_INSTALL_TARGET}\${pkg_name}.exe" "${pkg_path}"
+C:\var\vcap\packages\golang-windows\go.exe build -o "${BOSH_INSTALL_TARGET}\${pkg_name}.exe" "${pkg_path}"
 if ($LASTEXITCODE -ne 0) {
     Write-Error "Error compiling: ${pkg_path}"
 }
