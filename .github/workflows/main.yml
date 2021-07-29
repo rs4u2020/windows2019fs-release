@@ -1,0 +1,1 @@
+./scripts/create-release.ps1 -tarball {{file.tgz}}
